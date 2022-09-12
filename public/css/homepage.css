@@ -1,0 +1,25 @@
+.navbar{
+    background-color: #abd7f4;
+}
+.navbar .btn{
+    background-color: #7192a8;
+    border-color: #03396c;
+}
+.navbar .btn:hover{
+    background-color: #7192a8;
+    border-color: #03396c;
+}
+.card{
+    background-color: #2b6e9b ;
+}
+.card{
+    color: #b3cde0 !important;
+}
+.cardBtn{
+    background-color:#03396c !important;
+    color:  #b3cde0 !important;;
+}
+.cardBtn:hover{
+    background-color:#03396c !important;
+    color:  #b3cde0 !important;;
+}
