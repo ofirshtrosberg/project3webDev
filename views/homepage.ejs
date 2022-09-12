@@ -26,24 +26,26 @@
           <h5 class="modal-title" id="staticBackdropLabel">Add Employee</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action="">
+        <form action="/addEmp" method="post">
         <div class="modal-body">
+            <label class="form-label">Id:</label>
+            <input name="id" type="number" class="form-control" placeholder="Enter id">
             <label class="form-label">First Name:</label>
-            <input required class="form-control" placeholder="Enter first name">
+            <input name="firstName" class="form-control" placeholder="Enter first name">
             <label class="form-label">Last Name:</label>
-            <input required class="form-control" placeholder="Enter last name">
+            <input name="lastName" class="form-control" placeholder="Enter last name">
             <label class="form-label">Age:</label>
-            <input required type="number" class="form-control" placeholder="Enter age">
+            <input name="age" type="number" class="form-control" placeholder="Enter age">
             <label class="form-label">Phone Number:</label>
-            <input required type="number" class="form-control" placeholder="Enter phone number">
+            <input name="phoneNumber" type="number" class="form-control" placeholder="Enter phone number">
             <label class="form-label">Salary:</label>
-            <input required type="number" class="form-control" placeholder="Enter salary">
+            <input name="salary" type="number" class="form-control" placeholder="Enter salary">
             <label class="form-label">Job Description:</label>
-            <input required class="form-control" placeholder="Enter job description">
+            <input name="jobDesc" class="form-control" placeholder="Enter job description">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Add</button>
+          <button type="submit" class="btn btn-primary">Add</button>
         </div>
         </form>
       </div>

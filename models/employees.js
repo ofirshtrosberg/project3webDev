@@ -12,7 +12,7 @@ function getEmpByID(id){
     return employees.find(emp=> emp.id == id);
 }
 function addEmp(id, firstName, lastName, age, phoneNumber, salary, jobDesc){
-    videos.push({id, firstName, lastName, age, phoneNumber, salary, jobDesc});
+    employees.push({id, firstName, lastName, age, phoneNumber, salary, jobDesc});
 }
 function removeEmp(){
 
