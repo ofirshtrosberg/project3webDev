@@ -20,4 +20,13 @@ function removeEmp(req, res){
     empModel.removeEmp(id);
     res.redirect('/');
 }
-module.exports = {homepage, addEmp, removeEmp};
+function editEmp(req, res){
+    // const oldId = req.query.oldId;
+    // console.log(oldId);
+    //res.redirect('/');
+}
+function showEmp(req, res){
+    const id = req.query.id;
+    res.render('employee.ejs', {employee: empModel.getEmpByID(id)});
+}
+module.exports = {homepage, addEmp, removeEmp, editEmp, showEmp};

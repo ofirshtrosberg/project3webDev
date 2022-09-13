@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Employees</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/homepage.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-</head>
-<body>
-    <!-- Button trigger modal -->
-    <nav class="navbar mb-3">
-        <div class="container-fluid">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Add Employee
-              </button>
-        </div>
-    </nav>
 
-  
+<head>
+  <meta charset="UTF-8">
+  <title>Employees</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/homepage.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <!-- Button trigger modal -->
+  <nav class="navbar mb-3">
+    <div class="container-fluid">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Add Employee
+      </button>
+    </div>
+  </nav>
+
+
   <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -27,7 +31,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="/addEmp" method="post">
-        <div class="modal-body">
+          <div class="modal-body">
             <label class="form-label">Id:</label>
             <input name="id" type="number" class="form-control" placeholder="Enter id">
             <label class="form-label">First Name:</label>
@@ -42,36 +46,85 @@
             <input name="salary" type="number" class="form-control" placeholder="Enter salary">
             <label class="form-label">Job Description:</label>
             <input name="jobDesc" class="form-control" placeholder="Enter job description">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Add</button>
-        </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Add</button>
+          </div>
         </form>
       </div>
     </div>
   </div>
-    <div class="container text-center">
-        <div class="row g-3">
-            <% for(var i=0; i<employees.length; i++) {%>
-            <div class="col-md-3 col-4">
-                <div class="card">
-                    <div class="mb-3 text-end">
-                      <a href="/removeEmp?id=<%=employees[i].id%>" class="btn btnCardTop"><i class="bi bi-trash text-light"></i></a>
-                       <!--!!!!!!!!  -->
-                      <button class="btnCardTop"><i class="bi bi-pen text-light"></i></button>
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title"><%=employees[i].firstName + " " + employees[i].lastName%></h4>
-                        <a href="/employee?id=<%=employees[i].id%>" class="btn cardBtn">Show employee's details</a>
-                    </div>
-                </div>
+
+
+  <div class="container text-center">
+    <div class="row g-3">
+      <% for(var i=0; i<employees.length; i++) {%>
+        <div class="col-md-3 col-4">
+          <div class="card">
+            <div class="mb-3 text-end">
+              <a href="/removeEmp?id=<%=employees[i].id%>" class="btn btnCardTop"><i
+                  class="bi bi-trash icons"></i></a>
+              <!--!!!!!!!!  -->
+              <button type="button" class="btnCardTop" data-bs-toggle="modal" data-bs-target="#editModalForm">
+                <i class="bi bi-pen icons"></i>
+              </button>
+              <!-- !!!!!!! -->
             </div>
-            <%}%>
+            <div class="card-body">
+              <h4 class="card-title mb-4">
+                <%=employees[i].firstName + " " + employees[i].lastName%>
+              </h4>
+              <a href="/employee?id=<%=employees[i].id%>" class="btn cardBtn">Employee's details</a>
+            </div>
+          </div>
         </div>
+        <!-- !!!!!!! -->
+        <div class="modal fade" id="editModalForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Edit Employee</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form action="/editEmp" method="get">
+                <div class="modal-body text-start">
+                  <label class="form-label">Old Id:</label>
+                  <input name="oldId" type="number" class="form-control" value=<%=employees[i].id%>>
+                  <label class="form-label">Id:</label>
+                  <input name="id" type="number" class="form-control" placeholder="Enter id">
+                  <label class="form-label">First Name:</label>
+                  <input name="firstName" class="form-control" placeholder="Enter first name">
+                  <label class="form-label">Last Name:</label>
+                  <input name="lastName" class="form-control" placeholder="Enter last name">
+                  <label class="form-label">Age:</label>
+                  <input name="age" type="number" class="form-control" placeholder="Enter age">
+                  <label class="form-label">Phone Number:</label>
+                  <input name="phoneNumber" type="number" class="form-control" placeholder="Enter phone number">
+                  <label class="form-label">Salary:</label>
+                  <input name="salary" type="number" class="form-control" placeholder="Enter salary">
+                  <label class="form-label">Job Description:</label>
+                  <input name="jobDesc" class="form-control" placeholder="Enter job description">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Edit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- !!!!!!! -->
+        <%}%>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-    <script src="/js/homepage.js"></script>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+  <script src="/js/homepage.js"></script>
 </body>
+
 </html>
