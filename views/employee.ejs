@@ -3,17 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/employee.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 <body>
         <div>
-          <label><%=employee.id %> </label>
-          <label><%=employee.firstName %> </label>
-          <label><%=employee.lastName %> </label>
-          <label><%=employee.age %> </label>
-          <label><%=employee.phoneNumber%> </label>
-          <label><%=employee.salary %> </label>
-          <label><%=employee.jobDesc %> </label>
+          <div><i class="bi bi-person-circle userIcon"></i></div>
+          <div class="empDetailsDiv">
+          <label><b>Id:&nbsp;</b><%=employee.id %> </label>
+          <br>
+          <label><b>First Name:&nbsp;</b><%=employee.firstName %> </label>
+          <br>
+          <label><b>Last Name:&nbsp;</b><%=employee.lastName %> </label>
+          <br>
+          <label><b>Age:&nbsp;</b><%=employee.age %> </label>
+          <br>
+          <label><b>Phone Number:&nbsp;</b><%=employee.phoneNumber%> </label>
+          <br>
+          <label><b>Salary:&nbsp;</b><%=employee.salary %> </label>
+          <br>
+          <label><b>Job Description:&nbsp;</b><%=employee.jobDesc %> </label>
+          </div>
         </div>
-      
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
 </body>
 </html>

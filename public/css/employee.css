@@ -1,0 +1,14 @@
+body{
+    background-color: #ebf5fe !important;
+    color:  #012343 !important;
+    text-align: center !important;
+}
+.userIcon{
+    font-size: 150px;
+}
+.empDetailsDiv{
+    font-size: large;
+    margin-top: 2%;
+    margin-left: 42%;
+    text-align: left !important;
+}
