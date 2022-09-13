@@ -9,6 +9,10 @@
     background-color: #7192a8;
     border-color: #03396c;
 }
+.btnCardTop{
+    background-color: transparent;
+    border: none;
+}
 .card{
     background-color: #2b6e9b ;
 }

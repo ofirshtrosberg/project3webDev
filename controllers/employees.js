@@ -15,4 +15,9 @@ function addEmp(req, res){
     empModel.addEmp(id, firstName, lastName, age, phoneNumber, salary, jobDesc);
     res.redirect('/');
 }
-module.exports = {homepage, addEmp};
+function removeEmp(req, res){
+    const id = req.query.id;
+    empModel.removeEmp(id);
+    res.redirect('/');
+}
+module.exports = {homepage, addEmp, removeEmp};

@@ -14,7 +14,10 @@ function getEmpByID(id){
 function addEmp(id, firstName, lastName, age, phoneNumber, salary, jobDesc){
     employees.push({id, firstName, lastName, age, phoneNumber, salary, jobDesc});
 }
-function removeEmp(){
-
+function removeEmp(id){
+    const empIndex = employees.findIndex(emp => {
+        return emp.id == id;
+    });
+    employees.splice(empIndex, 1);
 }
 module.exports = {getEmlpyees, getEmpByID, addEmp, removeEmp};
