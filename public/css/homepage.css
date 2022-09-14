@@ -39,6 +39,8 @@ body{
 .btnCardTop{
     background-color: transparent;
     border: none;
+    float: right;
+    margin-top: 2px;
 }
 .card{
     background-image: url(/images/cardBackground.jpg);
@@ -56,4 +58,7 @@ body{
 .cardBtn:hover{
     background-color:#03396c !important;
     color:  #b3cde0 !important;
+}
+.invalidError{
+    color: red;
 }

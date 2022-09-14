@@ -1,5 +1,6 @@
 $(() => {
     $("#searchBarInput").keyup(function () {
+       console.log("key up");
         $.ajax({
             url: "http://localhost:/search?searchedValue="+$("#searchBarInput").val()
           }).done(function(resultsArr) {
@@ -14,5 +15,4 @@ $(() => {
             }
           });
     });
-   
 });

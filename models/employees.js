@@ -1,4 +1,4 @@
-var currId = 6;
+let currId = 6;
 const employees = [
     {id:1, fullName:"Moshe Cohen", age:21, phoneNumber:"0541234561", salary:10001, jobDesc: "QA Engineer"  },
     {id:2, fullName:"Dana Foo",  age:22, phoneNumber:"0541234562", salary:10002, jobDesc: "Software Engineer"  },
@@ -13,7 +13,7 @@ function getEmpByID(id){
     return employees.find(emp=> emp.id == id);
 }
 function addEmp(fullName, age, phoneNumber, salary, jobDesc){
-    employees.push({currId, fullName, age, phoneNumber, salary, jobDesc});
+    employees.push({id:currId, fullName:fullName, age:age, phoneNumber:phoneNumber, salary:salary, jobDesc:jobDesc});
     currId++;
 }
 function removeEmp(id){
@@ -22,8 +22,9 @@ function removeEmp(id){
     });
     employees.splice(empIndex, 1);
 }
-function editEmp(id){
-
+function editEmp(oldId,fullName, age, phoneNumber, salary, jobDesc){
+   removeEmp(Number(oldId));
+   addEmp(fullName, age, phoneNumber, salary, jobDesc);
 }
 function searchEmp(searchedValue){
     return employees.filter(emp => emp.fullName.toUpperCase().indexOf(searchedValue.toUpperCase())>=0);
