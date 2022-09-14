@@ -6,13 +6,12 @@ function homepage(req, res){
 function addEmp(req, res){
     //extract all the information from the body of the post request 
     const id = req.body.id;
-    const  firstName= req.body.firstName;
-    const lastName = req.body.lastName;
+    const fullName= req.body.fullName;
     const age = req.body.age;
     const phoneNumber = req.body.phoneNumber;
     const salary= req.body.salary;
     const jobDesc = req.body.jobDesc;
-    empModel.addEmp(id, firstName, lastName, age, phoneNumber, salary, jobDesc);
+    empModel.addEmp(id, fullName, age, phoneNumber, salary, jobDesc);
     res.redirect('/');
 }
 function removeEmp(req, res){
@@ -29,4 +28,8 @@ function showEmp(req, res){
     const id = req.query.id;
     res.render('employee.ejs', {employee: empModel.getEmpByID(id)});
 }
-module.exports = {homepage, addEmp, removeEmp, editEmp, showEmp};
+function searchEmp(req, res){
+    const searchedValue = req.query.searchedValue;
+    res.json(empModel.searchEmp(searchedValue));    
+}
+module.exports = {homepage, addEmp, removeEmp, editEmp, showEmp, searchEmp};
