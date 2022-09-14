@@ -1,3 +1,4 @@
+var currId = 6;
 const employees = [
     {id:1, fullName:"Moshe Cohen", age:21, phoneNumber:"0541234561", salary:10001, jobDesc: "QA Engineer"  },
     {id:2, fullName:"Dana Foo",  age:22, phoneNumber:"0541234562", salary:10002, jobDesc: "Software Engineer"  },
@@ -11,8 +12,9 @@ function getEmlpyees(){
 function getEmpByID(id){
     return employees.find(emp=> emp.id == id);
 }
-function addEmp(id, fullName, age, phoneNumber, salary, jobDesc){
-    employees.push({id, fullName, age, phoneNumber, salary, jobDesc});
+function addEmp(fullName, age, phoneNumber, salary, jobDesc){
+    employees.push({currId, fullName, age, phoneNumber, salary, jobDesc});
+    currId++;
 }
 function removeEmp(id){
     const empIndex = employees.findIndex(emp => {

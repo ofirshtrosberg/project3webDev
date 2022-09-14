@@ -21,6 +21,7 @@
     </button>
   </nav>
 
+  <!-- add form -->
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -53,41 +54,41 @@
     </div>
   </div>
 
- <!-- !!!!!!! -->
- <div class="modal fade" id="editModalForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
- aria-labelledby="staticBackdropLabel" aria-hidden="true">
- <div class="modal-dialog">
-   <div class="modal-content">
-     <div class="modal-header">
-       <h5 class="modal-title">Edit Employee</h5>
-       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-     </div>
-     <form action="/editEmp" method="get">
-       <div class="modal-body text-start">
-         <label class="form-label">Old Id:</label>
-         <input name="oldId" type="number" class="form-control">
-         <label class="form-label">Id:</label>
-         <input name="id" type="number" class="form-control" placeholder="Enter id">
-         <label class="form-label">Full Name:</label>
-         <input name="fullName" class="form-control" placeholder="Enter first name">
-         <label class="form-label">Age:</label>
-         <input name="age" type="number" class="form-control" placeholder="Enter age">
-         <label class="form-label">Phone Number:</label>
-         <input name="phoneNumber" type="number" class="form-control" placeholder="Enter phone number">
-         <label class="form-label">Salary:</label>
-         <input name="salary" type="number" class="form-control" placeholder="Enter salary">
-         <label class="form-label">Job Description:</label>
-         <input name="jobDesc" class="form-control" placeholder="Enter job description">
-       </div>
-       <div class="modal-footer">
-         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-         <button type="submit" class="btn btn-primary">Edit</button>
-       </div>
-     </form>
-   </div>
+  <!-- edit form -->
+  <div class="modal fade" id="editModalForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Employee</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="/editEmp" method="get">
+        <div class="modal-body text-start">
+          <label class="form-label">Old Id:</label>
+          <input id="oldIdInput" name="oldId" type="number" class="form-control">
+          <label class="form-label">Id:</label>
+          <input name="id" type="number" class="form-control" placeholder="Enter id">
+          <label class="form-label">Full Name:</label>
+          <input name="fullName" class="form-control" placeholder="Enter first name">
+          <label class="form-label">Age:</label>
+          <input name="age" type="number" class="form-control" placeholder="Enter age">
+          <label class="form-label">Phone Number:</label>
+          <input name="phoneNumber" type="number" class="form-control" placeholder="Enter phone number">
+          <label class="form-label">Salary:</label>
+          <input name="salary" type="number" class="form-control" placeholder="Enter salary">
+          <label class="form-label">Job Description:</label>
+          <input name="jobDesc" class="form-control" placeholder="Enter job description">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Edit</button>
+        </div>
+      </form>
+    </div>
+  </div>
  </div>
-</div>
-<!-- !!!!!!! -->
+
 
 
   <div class="container text-center">
@@ -100,17 +101,17 @@
     crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="/js/search.js"></script>
-  
+    <script src="/js/homepage.js"></script>
   
   
   <script id="searchedCardsTemplate" type="text/html">
     <div class="col-md-3 col-4">
       <div class="card">
-        <div class="mb-3 text-end">
-          <!-- <span class="oldIdSpan d-none">{id}</span> -->
+        <div class="mb-3 text-end">       
           <a href="/removeEmp?id={id}" class="btn btnCardTop"><i class="bi bi-trash icons"></i></a>
           <!--!!!!!!!!  -->
           <button type="button" class="editBtn btnCardTop" data-bs-toggle="modal" data-bs-target="#editModalForm">
+            <span class="oldIdSpan">{id}</span>
             <i class="bi bi-pen icons"></i>
           </button>
           <!-- !!!!!!! -->

@@ -1,17 +1,21 @@
 const empModel = require('../models/employees');
 
+function validation(fullName, age, phoneNumber, salary, jobDesc){
+
+}
+
 function homepage(req, res){
     res.render('homepage.ejs', {employees: empModel.getEmlpyees()});
 }
 function addEmp(req, res){
     //extract all the information from the body of the post request 
-    const id = req.body.id;
+    // const id = req.body.id;
     const fullName= req.body.fullName;
     const age = req.body.age;
     const phoneNumber = req.body.phoneNumber;
     const salary= req.body.salary;
     const jobDesc = req.body.jobDesc;
-    empModel.addEmp(id, fullName, age, phoneNumber, salary, jobDesc);
+    empModel.addEmp(fullName, age, phoneNumber, salary, jobDesc);
     res.redirect('/');
 }
 function removeEmp(req, res){
