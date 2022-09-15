@@ -59,6 +59,7 @@ body{
     background-color:#03396c !important;
     color:  #b3cde0 !important;
 }
-.invalidError{
+#invalidErrorAdd{
     color: red;
+    margin-left: 3px;
 }

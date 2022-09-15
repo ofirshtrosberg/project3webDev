@@ -14,5 +14,5 @@ $(() => {
                 $("#searchedCardsResult").append(searchedCardsTemplate);
             }
           });
-    });
+    });    
 });
