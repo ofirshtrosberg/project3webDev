@@ -63,3 +63,7 @@ body{
     color: red;
     margin-left: 3px;
 }
+#invalidErrorEdit{
+    color: red;
+    margin-left: 3px;  
+}
