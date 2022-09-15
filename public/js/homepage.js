@@ -1,5 +1,11 @@
 $(()=>{
+    $("body").on('click', '.AddEmployeeNav', function(){
+        const audio = new Audio("/audio/clickAudio.wav");
+        audio.play();
+    });
     $("body").on('click', '.editBtn', function(){
+        const audio = new Audio("/audio/clickAudio.wav");
+        audio.play();
         const editBtn = $(this).html();
         const editBtnCopy = $(editBtn);
         const id = $(editBtnCopy)[0].innerHTML;
