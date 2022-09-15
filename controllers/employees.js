@@ -9,10 +9,10 @@ function addEmp(req, res){
     const age = req.body.age;
     const phoneNumber = req.body.phoneNumber;
     const salary= req.body.salary;
+    const level = req.body.level;
     const jobDesc = req.body.jobDesc;
-    empModel.addEmp(fullName, age, phoneNumber, salary, jobDesc);
+    empModel.addEmp(fullName, age, phoneNumber, salary,level, jobDesc);
     res.redirect('/');
-    
 }
 function removeEmp(req, res){
     const id = req.body.id;
@@ -25,8 +25,10 @@ function editEmp(req, res){
     const age = req.body.age;
     const phoneNumber = req.body.phoneNumber;
     const salary = req.body.salary;
+    const level = req.body.level;
+    
     const jobDesc = req.body.jobDesc;
-    empModel.editEmp(oldId, fullName, age, phoneNumber, salary, jobDesc);
+    empModel.editEmp(oldId, fullName, age, phoneNumber, salary,level, jobDesc);
     res.redirect('/');   
 }
 function showEmp(req, res){

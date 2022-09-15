@@ -40,6 +40,8 @@
             <input id="phoneNumberAdd" name="phoneNumber" type="number" class="form-control" placeholder="Enter phone number">
             <label class="form-label">Salary:</label>
             <input id="salaryAdd" name="salary" type="number" class="form-control" placeholder="Enter salary">
+            <label class="form-label">Level:</label>
+            <input id="levelAdd" name="level" class="form-control" placeholder="Enter level">
             <label class="form-label">Job Description:</label>
             <input id="jobDescAdd" name="jobDesc" class="form-control" placeholder="Enter job description">
           </div>
@@ -64,7 +66,7 @@
       </div>
       <form action="/editEmp" method="post">
         <div class="modal-body text-start">
-          <input id="oldIdInput" name="oldId" type="number" class="form-control" readonly>
+          <input id="oldIdInput" name="oldId" type="number" class="form-control d-none" readonly>
           <label class="form-label">Full Name:</label>
           <input id="fullNameEdit" name="fullName" class="form-control" placeholder="Enter first name">
           <label class="form-label">Age:</label>
@@ -73,6 +75,8 @@
           <input id="phoneNumberEdit" name="phoneNumber" type="number" class="form-control" placeholder="Enter phone number">
           <label class="form-label">Salary:</label>
           <input id="salaryEdit" name="salary" type="number" class="form-control" placeholder="Enter salary">
+          <label class="form-label">Level:</label>
+          <input id="levelEdit" name="level" class="form-control" placeholder="Enter level">
           <label class="form-label">Job Description:</label>
           <input id="jobDescEdit" name="jobDesc" class="form-control" placeholder="Enter job description">
         </div>
@@ -100,6 +104,12 @@
             </form>       
             <button type="button" class="editBtn btnCardTop" data-bs-toggle="modal" data-bs-target="#editModalForm">
               <span class="oldIdSpan d-none"><%=employees[i].id%></span>
+              <span class="d-none"><%=employees[i].fullName%></span>
+              <span class="d-none"><%=employees[i].age%></span>
+              <span class="d-none"><%=employees[i].phoneNumber%></span>
+              <span class="d-none"><%=employees[i].salary%></span>
+              <span class="d-none"><%=employees[i].level%></span>
+              <span class="d-none"><%=employees[i].jobDesc%></span>
               <i class="bi bi-pen icons"></i>
             </button>
           </div>
@@ -137,6 +147,12 @@
           </form>     
           <button type="button" class="editBtn btnCardTop" data-bs-toggle="modal" data-bs-target="#editModalForm">
             <span class="oldIdSpan d-none">{id}</span>
+            <span class="d-none">{fullName}</span>
+              <span class="d-none">{age}</span>
+              <span class="d-none">{phoneNumber}</span>
+              <span class="d-none">{salary}</span>
+              <span class="d-none">{level}</span>
+              <span class="d-none">{jobDesc}</span>
             <i class="bi bi-pen icons"></i>
           </button>
         </div>

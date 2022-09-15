@@ -3,11 +3,22 @@ $(()=>{
         const editBtn = $(this).html();
         const editBtnCopy = $(editBtn);
         const id = $(editBtnCopy)[0].innerHTML;
+        const fullName = $(editBtnCopy)[2].innerHTML;
+        const age = $(editBtnCopy)[4].innerHTML;
+        const phoneNumber = $(editBtnCopy)[6].innerHTML;
+        const salary = $(editBtnCopy)[8].innerHTML;
+        const level = $(editBtnCopy)[10].innerHTML;
+        const jobDesc = $(editBtnCopy)[12].innerHTML;
         $("#oldIdInput").val(id);
-        
+        $("#fullNameEdit").val(fullName);
+        $("#ageEdit").val(age);
+        $("#phoneNumberEdit").val(phoneNumber);
+        $("#salaryEdit").val(salary);
+        $("#levelEdit").val(level);
+        $("#jobDescEdit").val(jobDesc);
     });
 
-    function validation(fullName, age, phoneNumber, salary, jobDesc, errorDiv){
+    function validation(fullName, age, phoneNumber, salary, level, jobDesc, errorDiv){
         const onlyLettersAndSpaces = /^[A-Za-z\s]*$/
         const onlyNumbers = /[0-9]+/
         const PhoneStart = /(050|054|053|052)\d+/
@@ -72,6 +83,15 @@ $(()=>{
             $(errorDiv).text("Invalid input - Salary must be between 30 and 100,000");
             return false;
         }
+        else if(level == ""){
+            $(errorDiv).text("Invalid input - Level is required");
+            return false;
+        }
+        else if((level != "Junior") && (level != "Senior")&& (level != "Expert") )
+        {
+            $(errorDiv).text("Invalid input - Level must be one of the following: Junior/Senior/Expert");
+            return false;
+        }
         else if(jobDesc == "")
         {
             $(errorDiv).text("Invalid input - Job Description is required");
@@ -88,15 +108,12 @@ $(()=>{
             const age = $("#ageAdd").val(); 
             const phoneNumber = $("#phoneNumberAdd").val(); 
             const salary =$("#salaryAdd").val();
+            const level = $("#levelAdd").val();
             const jobDesc = $("#jobDescAdd").val();
             const errorDiv = "#invalidErrorAdd";
-            if(validation(fullName,age,phoneNumber,salary,jobDesc, errorDiv)){
-                console.log("true");
+            if(validation(fullName,age,phoneNumber,salary,level, jobDesc, errorDiv)){
                 $("#addBtn").attr('type', 'submit');
-            }
-            else{
-                console.log("false");
-            }   
+            } 
     });
 
     $("body").on('click', '#editBtn', function(){
@@ -104,14 +121,12 @@ $(()=>{
         const age = $("#ageEdit").val(); 
         const phoneNumber = $("#phoneNumberEdit").val(); 
         const salary =$("#salaryEdit").val();
+        const level = $("#levelEdit").val();
         const jobDesc = $("#jobDescEdit").val();
         const errorDiv = "#invalidErrorEdit";
-        if(validation(fullName,age,phoneNumber,salary,jobDesc, errorDiv)){
-            console.log("true");
+         if(validation(fullName,age,phoneNumber,salary,level, jobDesc, errorDiv)){
             $("#editBtn").attr('type', 'submit');
         }
-        else{
-            console.log("false");
-        }   
+       
 });
 });
